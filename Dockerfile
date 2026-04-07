@@ -2,9 +2,11 @@ FROM python:3.9
 
 WORKDIR /app
 
-COPY . .
+COPY requirements.txt .
 
-RUN pip install flask flask-restful flask-talisman flask-cors nose flake8
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
 
 EXPOSE 8080
 
